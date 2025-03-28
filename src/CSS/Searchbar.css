@@ -1,8 +1,8 @@
 .search-container {
-position: fixed; /* Make the container fixed */
-top: 55px; /* Keep the current margin from the top */
-left: 50%; /* Center the container horizontally */
-transform: translateX(-50%); /* Adjust for centering */
+position: fixed; 
+top: 60px;
+left: 50%; 
+transform: translateX(-50%);
 text-align: center;
 }
 

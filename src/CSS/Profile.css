@@ -1,0 +1,195 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+  left: 40px;
+  height: auto;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+  background: linear-gradient(143deg, rgba(17, 43, 81, 0.5760679271708684) 35%, rgba(32, 79, 149, 1) 100%);
+  border-radius: 30px;
+  padding: 20px;
+  padding-bottom: 40px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 28px;
+}
+
+.profile h2 {
+  margin-bottom: 40px;
+  font-size: 24px;
+}
+
+.profile-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: calc(100% - 1px); /* Stretch the bar closer to the edges with 4px clearance on both sides */
+  padding: 12px 20px; /* Increased padding for a thicker feel */
+  margin: 20px 0;
+  background-color: #1f3b5b;
+  color: white;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box; /* Ensure padding doesn't affect the width */
+}
+
+.profile-bar:hover {
+  background-color: #2a4d73;
+}
+
+.profile-bar.active {
+  background-color: #b5c8df;
+  color: black;
+}
+
+.profile-bar:last-of-type {
+  margin-bottom: 90px;
+}
+
+.profile-bar-icon {
+  margin-right: 10px; /* Space between the icon and the text */
+  width: 24px; /* Resize the icon */
+  height: 24px;
+}
+
+.friends-section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 100%;
+  text-align: left;
+  color: white;
+  padding-left: 20px;
+}
+
+.friends-section h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.friend {
+  display: flex;
+  align-items: flex-start; /* Align the icon and text at the top */
+  margin-top: 10px;
+}
+
+.friend-icon {
+  width: 70px; /* Make the icon larger */
+  height: 70px; /* Keep it square */
+  border-radius: 8px; /* Slightly rounded corners */
+  margin-right: 10px; /* Space between the icon and the text */
+}
+
+.friend-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.friend-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+.friend-listening {
+  font-size: 12px;
+  color: white;
+  opacity: 0.8;
+}
+
+.friend-music {
+  font-size: 14px;
+  font-weight: bold;
+  color: #5bb941; /* Green color for music name */
+}
+
+.friend-artist {
+  font-size: 12px;
+  font-weight: 300; /* Thin font weight */
+  color: rgba(91, 185, 65, 0.79); /* Green with 79% opacity */
+}
+
+.friends-section p {
+  font-size: 14px;
+  color: #b5c8df;
+  margin-bottom:150px;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center; /* Vertically align items */
+  justify-content: space-between; /* Space between the left group and the arrow */
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: auto;
+  background-color: #1f3b5b;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-button:hover {
+  background-color: #2a4d73;
+}
+
+.profile-photo {
+  display: flex;
+  align-items: center; /* Vertically align the photo and name */
+}
+
+.profile-photo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Make the image circular */
+  margin-right: 10px; /* Add spacing between the photo and the name */
+}
+
+.profile-name {
+  color: white;
+  font-size: 16px;
+  text-align: left;
+}
+
+.profile-arrow {
+  font-size: 16px;
+  color: white;
+}
+
+.dropup-menu {
+  position: absolute;
+  bottom: 110px; 
+  left: 20px;
+  width: calc(100% - 40px);
+  background-color: #1f3b5b;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  z-index: 10;
+  opacity: 0; /* Start hidden */
+  transform: translateY(10px); /* Start slightly below */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth animation */
+}
+
+.dropup-menu.show {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move into place */
+}
+
+.dropup-item {
+  padding: 10px 20px;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropup-item:hover {
+  background-color: #2a4d73;
+}
+

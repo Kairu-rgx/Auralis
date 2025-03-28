@@ -1,15 +1,22 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import './App.css';
-import Profile from './Components/Profile';
-import Searchbar from './Components/Searchbar';
-
+import React from "react";
+import "./App.css";
+import Profile from "./components/Profile"; 
 function App() {
   return (
-    <Container fluid className="text-light min-vh-100 body">
-      <Profile />
-      <Searchbar />
-    </Container>
+    <div className="container">
+      <div className="left">
+        <Profile /> {/* Add the Profile component here */}
+      </div>
+      <div className="middle">
+        <div className="middle-top">Middle Top</div>
+        <div className="middle-bottom">
+          <p>Main</p>
+          <p>Ikaw ra usa mag code pag kugi</p>
+          <p>Kaduwaon ko</p>
+        </div>
+      </div>
+      <div className="right">Right</div>
+    </div>
   );
 }
 

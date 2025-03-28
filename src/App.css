@@ -1,43 +1,63 @@
-*{
+/* Reset & General Styles */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
 }
+
 body {
-  background: linear-gradient(135deg, 
-    #000000 0%, 
-    #000000 25%, 
-    #06193a 40%, 
-    #132548 50%, 
-    #061631 60%, 
-    #000000 75%, 
-    #000000 100%);
-  min-height: 100vh;
-  margin-left: 60px;
-  margin-top: 55px;
-  border: 1px solid red; 
-  color: white; 
-}
-
-/* *{
-  border: 1px solid red;
-} */
-
-.inner-div{
-  background: rgb(17,43,81,);
   background: linear-gradient(
-  172deg, 
-rgba(17,43,81,0.727328431372549) 35%, 
-rgba(32,79,149,1) 100%);
-  border-radius: 35px;
-  width: 350px;
-  height: 800px;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
+    135deg,
+    #000000 0%,
+    #000000 25%,
+    #06193a 40%,
+    #132548 50%,
+    #061631 60%,
+    #000000 75%,
+    #000000 100%
+  );
 }
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* Ensures all elements stretch to the container's height */
+  height: 100vh; /* Full viewport height */
+  padding: 10px;
+}
+
+.left {
+  width: 20%; /* Fixed width for the left div */
+}
+
+.middle {
+  display: flex;
+  flex-direction: column; /* Stack the top and bottom sections vertically */
+  height: 100%; /* Full height of the container */
+  width: 60%; /* Fixed width for the middle container */
+}
+
+.middle-top {
+  height: 10%; /* Top section takes 10% of the height */
+  background-color: lightgreen; /* Optional: Background color for visibility */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.middle-bottom {
+  height: 90%; /* Bottom section takes the remaining 90% */
+  background-color: lightyellow; /* Optional: Background color for visibility */
+  overflow-y: auto; /* Enable vertical scrolling */
+  text-align: center;
+  display: block; /* Allow content to flow naturally */
+  padding: 10px; /* Optional: Add padding for spacing */
+}
+
+.right {
+  width: 20%; /* Fixed width for the right div */
+  background-color: lightcoral;
+}
+
 
