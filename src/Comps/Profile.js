@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "../CSS/Profile.css";
 import HomeIcon from "../assets/Icons/home.svg";
 import PlaylistIcon from "../assets/Icons/playlistw.svg";
-import SearchIcon from "../assets/Icons/searchw.svg";
+import FavoritesIcon from "../assets/Icons/favoritesw.svg"; // Replace with your actual favorites icon path
 import NotificationsIcon from "../assets/Icons/bellw.svg";
-import ProfileImage from "../assets/Images/Nyxitup.jpg"; 
-import FriendIcon from "../assets/Images/kairu.jpg"; 
+import ProfileImage from "../assets/Images/Nyxitup.jpg";
+import FriendIcon from "../assets/Images/kairu.jpg";
 
 function Profile() {
   const [active, setActive] = useState("Home");
@@ -30,11 +30,11 @@ function Profile() {
         Home
       </div>
       <div
-        className={`profile-bar ${active === "Search" ? "active" : ""}`}
-        onClick={() => handleClick("Search")}
+        className={`profile-bar ${active === "Favorites" ? "active" : ""}`}
+        onClick={() => handleClick("Favorites")}
       >
-        <img src={SearchIcon} alt="Search" className="profile-bar-icon" />
-        Search
+        <img src={FavoritesIcon} alt="Favorites" className="profile-bar-icon" />
+        Favorites
       </div>
       <div
         className={`profile-bar ${active === "Playlists" ? "active" : ""}`}
@@ -68,19 +68,19 @@ function Profile() {
       {/* Profile Button */}
       <div className="profile-button" onClick={toggleDropup}>
         <div className="profile-photo">
-        <img src={ProfileImage} alt="Profile" />
-      </div>
-      <div className="profile-name">Nyxitup</div>
-      <div className="profile-arrow">{showDropup ? "▲" : "▼"}</div>
-    </div>
-
-    {/* Drop-up Menu */}
-    <div className={`dropup-menu ${showDropup ? "show" : ""}`}>
-      <div className="dropup-item">Switch Account</div>
-      <div className="dropup-item">Add New Account</div>
-    </div>
+          <img src={ProfileImage} alt="Profile" />
         </div>
-      );
+        <div className="profile-name">Nyxitup</div>
+        <div className="profile-arrow">{showDropup ? "▲" : "▼"}</div>
+      </div>
+
+      {/* Drop-up Menu */}
+      <div className={`dropup-menu ${showDropup ? "show" : ""}`}>
+        <div className="dropup-item">Switch Account</div>
+        <div className="dropup-item">Add New Account</div>
+      </div>
+    </div>
+  );
 }
 
 export default Profile;

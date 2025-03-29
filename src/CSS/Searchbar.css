@@ -145,7 +145,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%; /* Ensure the container spans the full width */
   margin-bottom: 10px;
+}
+
+.recent-searches-header h4 {
+  margin: 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Adjust color as needed */
+  width: 100%; /* Make the line stretch across the container */
 }
 
 .recent-searches h4 {
