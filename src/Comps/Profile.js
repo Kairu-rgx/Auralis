@@ -4,8 +4,8 @@ import HomeIcon from "../assets/Icons/home.svg";
 import PlaylistIcon from "../assets/Icons/playlistw.svg";
 import SearchIcon from "../assets/Icons/searchw.svg";
 import NotificationsIcon from "../assets/Icons/bellw.svg";
-import ProfileImage from "../assets/Images/Nyxitup.jpg"; // Profile image
-import FriendIcon from "../assets/Images/kairu.jpg"; // Friend's profile image
+import ProfileImage from "../assets/Images/Nyxitup.jpg"; 
+import FriendIcon from "../assets/Images/kairu.jpg"; 
 
 function Profile() {
   const [active, setActive] = useState("Home");

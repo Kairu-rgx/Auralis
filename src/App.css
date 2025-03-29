@@ -39,7 +39,6 @@ body {
 
 .middle-top {
   height: 10%; /* Top section takes 10% of the height */
-  background-color: lightgreen; /* Optional: Background color for visibility */
   text-align: center;
   display: flex;
   justify-content: center;
