@@ -1,0 +1,65 @@
+/* Recently Played Section */
+.recently-played {
+  margin-bottom: 20px;
+}
+
+.recently-played-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.recently-played-card {
+  width: 100px;
+  text-align: center;
+}
+
+.album-art {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.song-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 0 2px;
+}
+
+.artist-name {
+  font-size: 12px;
+  color: gray;
+}
+
+/* Music Cards Section */
+.music-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.music-card {
+  position: relative;
+  background: #f0f0f0;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.card-details {
+  margin-top: 10px;
+}
+
+.card-actions {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fav-icon,
+.play-icon {
+  width: 20px;
+  cursor: pointer;
+}

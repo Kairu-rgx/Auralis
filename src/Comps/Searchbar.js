@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import "../CSS/Searchbar.css";
-import SearchIcon from "../assets/Icons/searchw.svg"; // Replace with your actual icon path
+import SearchIcon from "../assets/Icons/searchw.svg"; 
 
 function Searchbar() {
-  const [query, setQuery] = useState(""); // Track the input value
-  const [results, setResults] = useState([]); // Track search results
-  const [recentSearches, setRecentSearches] = useState([]); // Track valid searches
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false); // Control dropdown visibility
+  const [query, setQuery] = useState(""); 
+  const [results, setResults] = useState([]); 
+  const [recentSearches, setRecentSearches] = useState([]);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false); 
 
-  // Mock data for search results
+  
   const mockData = [
     "Song A",
     "Song B",
@@ -21,63 +21,63 @@ function Searchbar() {
     "Playlist B",
   ];
 
-  // Handle input change and filter results dynamically
+ 
   const handleInputChange = (e) => {
     const value = e.target.value;
     setQuery(value);
 
     if (value.trim() !== "") {
-      // Filter mock data based on the input
+    
       const filteredResults = mockData.filter((item) =>
         item.toLowerCase().includes(value.toLowerCase())
       );
-      setResults(filteredResults); // Update results with filtered data
-      setIsDropdownVisible(true); // Show the dropdown
+      setResults(filteredResults);
+      setIsDropdownVisible(true);
     } else {
-      setResults([]); // Clear results if input is empty
-      setIsDropdownVisible(recentSearches.length > 0); // Show recent searches if they exist
+      setResults([]);
+      setIsDropdownVisible(recentSearches.length > 0);
     }
   };
 
-  // Handle valid search actions
+ 
   const handleSearch = () => {
     if (query.trim() !== "") {
-      setRecentSearches((prev) => [...prev, query]); // Add to recent searches
-      setResults([]); // Clear results dropdown
-      setIsDropdownVisible(false); // Hide the dropdown
+      setRecentSearches((prev) => [...prev, query]); 
+      setResults([]); 
+      setIsDropdownVisible(false); 
       console.log("Search triggered for:", query);
     }
   };
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-      handleSearch(); // Trigger search on Enter key
+      handleSearch(); 
     }
   };
 
   const handleResultClick = (result) => {
-    setRecentSearches((prev) => [...prev, result]); // Add clicked result to recent searches
-    setQuery(result); // Update the search bar with the selected result
-    setResults([]); // Clear results dropdown
-    setIsDropdownVisible(false); // Hide the dropdown
+    setRecentSearches((prev) => [...prev, result]); 
+    setQuery(result); 
+    setResults([]);
+    setIsDropdownVisible(false);
     console.log("User interacted with result:", result);
   };
 
-  // Handle focus and blur events
+
   const handleFocus = () => {
-    setIsDropdownVisible(recentSearches.length > 0 || results.length > 0); // Show dropdown if there’s content
+    setIsDropdownVisible(recentSearches.length > 0 || results.length > 0);
   };
 
   const handleBlur = () => {
     setTimeout(() => {
-      setIsDropdownVisible(false); // Hide the dropdown when blurred
-    }, 200); // Delay to allow click events to register
+      setIsDropdownVisible(false); 
+    }, 200); 
   };
 
-  // Clear recent searches
+  
   const clearRecentSearches = () => {
-    setRecentSearches([]); // Clear the recent searches array
-    setIsDropdownVisible(false); // Hide the dropdown
+    setRecentSearches([]); 
+    setIsDropdownVisible(false);
   };
 
   return (
@@ -96,9 +96,9 @@ function Searchbar() {
           className="search-input"
           value={query}
           onChange={handleInputChange}
-          onKeyPress={handleKeyPress} // Listen for Enter key
-          onFocus={handleFocus} // Show dropdown on focus
-          onBlur={handleBlur} // Hide dropdown on blur
+          onKeyPress={handleKeyPress}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
       </div>
 

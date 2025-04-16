@@ -4,19 +4,19 @@
   justify-content: center;
   padding: 10px 20px;
   border-radius: 20px;
-  margin: 40px 0 20px 0; /* Add top margin of 40px */
-  width: 100%; /* Full width */
-  max-width:800px; /* Stretch it more sideways */
-  position: relative; /* Parent for absolute positioning of dropdowns */
+  margin: 40px 0 20px 0;
+  width: 100%;
+  max-width: 800px;
+  position: relative;
 }
 
 .search-input-container {
   display: flex;
   align-items: center;
-  background-color: rgba(217, 217, 217, 0.09); /* Inside color with 9% opacity */
-  border: 1px solid white; /* 1px white border */
+  background-color: rgba(217, 217, 217, 0.09);
+  border: 1px solid white;
   border-radius: 50px;
-  padding: 20px 20px; /* Increase padding for a fatter look */
+  padding: 20px 20px;
   width: 100%;
 }
 
@@ -31,28 +31,28 @@
 }
 
 .search-icon-button:hover .search-icon {
-  opacity: 0.8; /* Slight hover effect */
+  opacity: 0.8;
 }
 
 .search-icon {
-  width: 20px; /* Slightly larger icon */
+  width: 20px;
   height: 20px;
   margin-right: 10px;
 }
 
 .search-input {
-  flex: 1; /* Allow the input to stretch */
-  min-width: 50px; /* Prevent it from shrinking too much */
+  flex: 1;
+  min-width: 50px;
   background: transparent;
   border: none;
   outline: none;
   color: white;
-  font-size: 16px; /* Slightly larger font size */
+  font-size: 16px;
   padding: 5px 0;
 }
 
 .search-input::placeholder {
-  color: #b5c8df; /* Light gray placeholder text */
+  color: #b5c8df;
 }
 
 .search-input:focus {
@@ -75,56 +75,55 @@
 
 @media (max-width: 768px) {
   .searchbar {
-    max-width: 100%; /* Full width on smaller screens */
-    margin: 20px 0; /* Adjust margins */
+    max-width: 100%;
+    margin: 20px 0;
   }
 
   .search-input-container {
-    padding: 8px 15px; /* Reduce padding */
+    padding: 8px 15px;
   }
 
   .search-icon {
-    width: 16px; /* Smaller icon */
+    width: 16px;
     height: 16px;
   }
 
   .search-input {
-    font-size: 14px; /* Smaller font size */
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .searchbar {
-    margin: 10px 0; /* Even smaller margins */
+    margin: 10px 0;
   }
 
   .search-input-container {
-    padding: 5px 10px; /* Compact padding */
+    padding: 5px 10px;
   }
 
   .search-input {
-    font-size: 12px; /* Smaller font size for very small screens */
+    font-size: 12px;
   }
 }
 
-/* Search Results and Recent Searches */
 .search-results {
   position: absolute;
-  top: 100%; /* Place it directly below the search bar */
+  top: 100%;
   left: 0;
   right: 0;
-  z-index: 10; /* Ensure it appears above other elements */
+  z-index: 10;
   background-color: #1f3b5b;
   border-radius: 8px;
   padding: 10px;
   color: white;
-  max-height: 300px; /* Limit the height */
-  overflow-y: auto; /* Add scrolling if content exceeds max height */
-  text-align: left; /* Left-align all text */
+  max-height: 300px;
+  overflow-y: auto;
+  text-align: left;
 }
 
 .search-results:empty {
-  display: none; /* Hide the dropdown if it’s empty */
+  display: none;
 }
 
 .search-result-item {
@@ -145,15 +144,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%; /* Ensure the container spans the full width */
+  width: 100%;
   margin-bottom: 10px;
 }
 
 .recent-searches-header h4 {
   margin: 0;
   padding-bottom: 5px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Adjust color as needed */
-  width: 100%; /* Make the line stretch across the container */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
 }
 
 .recent-searches h4 {
@@ -173,7 +172,7 @@
 }
 
 .clear-recent-searches:hover {
-  color: #ff6b6b; /* Highlight the button on hover */
+  color: #ff6b6b;
 }
 
 .recent-searches ul {
@@ -188,7 +187,7 @@
 }
 
 .recent-searches li:hover {
-  background-color: #2a4d73; 
+  background-color: #2a4d73;
 }
 
 .dynamic-results .search-result-item {
@@ -203,5 +202,5 @@
 
 .recent-searches:empty,
 .dynamic-results:empty {
-  display: none; 
+  display: none;
 }

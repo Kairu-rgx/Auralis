@@ -1,4 +1,3 @@
-/* Reset & General Styles */
 * {
   margin: 0;
   padding: 0;
@@ -8,37 +7,37 @@
 body {
   background: linear-gradient(
     135deg,
-    #000000 0%,
-    #000000 25%,
+    #060606 0%,
+    #060606 25%,
     #06193a 40%,
     #132548 50%,
     #061631 60%,
-    #000000 75%,
-    #000000 100%
+    #060606 75%,
+    #060606 100%
   );
 }
 
 .container {
   display: flex;
   justify-content: space-between;
-  align-items: stretch; /* Ensures all elements stretch to the container's height */
-  height: 100vh; /* Full viewport height */
+  align-items: stretch; 
+  height: 100vh; 
   padding: 10px;
 }
 
 .left {
-  width: 20%; /* Fixed width for the left div */
+  width: 20%; 
 }
 
 .middle {
   display: flex;
-  flex-direction: column; /* Stack the top and bottom sections vertically */
-  height: 100%; /* Full height of the container */
-  width: 60%; /* Fixed width for the middle container */
+  flex-direction: column;
+  height: 100%; 
+  width: 60%;
 }
 
 .middle-top {
-  height: 10%; /* Top section takes 10% of the height */
+  height: 10;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -46,16 +45,17 @@ body {
 }
 
 .middle-bottom {
-  height: 90%; /* Bottom section takes the remaining 90% */
-  background-color: lightyellow; /* Optional: Background color for visibility */
-  overflow-y: auto; /* Enable vertical scrolling */
+  height: 90%;
+  overflow-y: auto; 
   text-align: center;
-  display: block; /* Allow content to flow naturally */
-  padding: 10px; /* Optional: Add padding for spacing */
+  display: block;
+  padding: 10px;
+  scrollbar-width: none; /* Completely hide the scrollbar */
 }
 
+
 .right {
-  width: 20%; /* Fixed width for the right div */
+  width: 20%; 
   background-color: lightcoral;
 }
 
