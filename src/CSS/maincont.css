@@ -1,8 +1,9 @@
 /* ——— Main Content ——— */
 .main-content {
-  padding: 20px;
+  padding: 0;
+  margin-bottom: 80px; /* Add margin to ensure content is above the control bar */
+  box-sizing: border-box; /* Include padding and margin in the element's dimensions */
 }
-
 .carved-for-you {
   margin-top: 40px;
   padding: 0;
@@ -15,7 +16,6 @@
   text-align: left;
 }
 
-/* Hide scrollbar for horizontal scroll sections */
 .carved-row::-webkit-scrollbar,
 .recently-played-row::-webkit-scrollbar {
   display: none;
@@ -33,11 +33,43 @@
   -ms-overflow-style: none;
 }
 
-/* Wrapper for Carved for You row and arrows */
+
 .carved-row-wrapper {
   position: relative;
   display: flex;
   align-items: center;
+}
+
+/* Arrows inside the Carved for You wrapper */
+.carved-row-wrapper .arrow {
+  position: absolute; /* Position arrows absolutely within the wrapper */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+  width: 40px; /* Adjust arrow size */
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  border-radius: 50%; /* Make the arrows circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10; /* Ensure arrows appear above other elements */
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Disable interaction when hidden */
+  transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+
+.carved-for-you:hover .arrow {
+  opacity: 1; /* Show arrows on hover */
+  pointer-events: auto; /* Enable interaction */
+}
+
+.carved-row-wrapper .arrow.left {
+  left: 2px; /* Pull carved left arrow inward */
+}
+
+.carved-row-wrapper .arrow.right {
+  right: 2px; /* Pull carved right arrow inward */
 }
 
 .carved-row {
@@ -49,118 +81,6 @@
   padding: 10px 0;
 }
 
-/* Arrows inside the wrapper */
-.carved-row-wrapper .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 10;
-  transition: opacity 0.3s ease;
-}
-
-.carved-row-wrapper .arrow.left {
-  left: -30px !important; 
-}
-
-.carved-row-wrapper .arrow.right {
-  right: -30px !important; 
-}
-
-
-.carved-row-wrapper:hover .arrow {
-  opacity: 1;
-}
-
-@media (max-width: 1024px) {
-  .recently-played-card {
-    flex: 0 0 180px; /* Slightly smaller for medium screens */
-    max-width: 180px;
-  }
-}
-
-@media (max-width: 768px) {
-  .carved-row-wrapper .arrow {
-    width: 30px;
-    height: 30px;
-  }
-
-  .carved-row-wrapper .arrow.left {
-    left: 5px;
-  }
-
-  .carved-row-wrapper .arrow.right {
-    right: 5px;
-  }
-
-  .carved-row .recently-played-card {
-    flex: 0 0 300px; /* Reduce width for smaller screens */
-    max-width: 300px;
-  }
-
-  .carved-row .album-art {
-    width: 140px; /* Reduce size of album art */
-    height: 140px;
-  }
-
-  .album-title {
-    font-size: 14px; /* Adjust font size */
-  }
-
-  .album-desc {
-    font-size: 12px; /* Adjust font size */
-  }
-
-  .recently-played-card {
-    flex: 0 0 160px; /* Smaller for tablets */
-    max-width: 160px;
-  }
-}
-
-@media (max-width: 480px) {
-  .carved-row-wrapper .arrow {
-    width: 25px;
-    height: 25px;
-  }
-
-  .carved-row-wrapper .arrow.left {
-    left: 2px;
-  } 
-
-  .carved-row-wrapper .arrow.right {
-    right: 2px;
-  }
-
-  .carved-row .recently-played-card {
-    flex: 0 0 250px; /* Further reduce width */
-    max-width: 250px;
-  }
-
-  .carved-row .album-art {
-    width: 120px; /* Further reduce size of album art */
-    height: 120px;
-  }
-
-  .album-title {
-    font-size: 12px;
-  }
-
-  .album-desc {
-    font-size: 10px;
-  }
-
-  .recently-played-card {
-    flex: 0 0 140px; /* Smaller for mobile */
-    max-width: 140px;
-  }
-}
 
 /* ——— Recently Played Section ——— */
 .recently-played {
@@ -245,8 +165,8 @@
 
 .recently-played-card .card-actions {
   position: absolute;
+  padding-top: 5px;
   bottom: 10px;
-  left: 10px;
   right: 10px;
   display: flex;
   justify-content: space-between;
@@ -330,37 +250,23 @@
   gap: 10px;
 }
 
-/* ——— Arrows ——— */
+/* General Arrow Styling */
 .arrow {
   position: absolute;
-  top: 50%;
+  top: 50%; /* Center vertically */
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  z-index: 10;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.recently-played:hover .arrow,
-.carved-for-you:hover .arrow {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.arrow.left {
-  left: -20px;
-}
-
-.arrow.right {
-  right: -20px;
+  z-index: 10; /* Ensure arrows appear above other elements */
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Disable interaction when hidden */
+  transition: opacity 0.3s ease; /* Smooth fade-in effect */
 }
 
 .arrow svg {
@@ -369,36 +275,52 @@
   height: 20px;
 }
 
-/* Align arrows for Carved for You section */
-.carved-for-you .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
+/* Hover Behavior for Arrows */
+.recently-played:hover .arrow,
+.carved-for-you:hover .arrow,
+.playlist-section:hover .arrow,
+.featured-artists-section:hover .arrow {
+  opacity: 1; /* Show arrows on hover */
+  pointer-events: auto; /* Enable interaction */
+}
+
+/* Left and Right Arrow Positioning */
+.arrow.left {
+  left: 5px; /* Pull left arrows inward by 10px */
+}
+
+.arrow.right {
+  right: 5px; /* Pull right arrows inward by 10px */
+}
+
+/* Wrapper for Playlist Section */
+.playlist-row-wrapper {
+  position: relative; /* Ensure arrows are positioned relative to this container */
   display: flex;
-  justify-content: center;
   align-items: center;
-  cursor: pointer;
-  z-index: 10;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
 }
 
-.carved-for-you:hover .arrow {
-  opacity: 1;
-  pointer-events: auto;
+.playlist-row-wrapper .arrow.left {
+  left: 5px; /* Pull playlist left arrow inward */
 }
 
-.carved-for-you .arrow.left {
-  left: 10px; /* Adjust this value to move the arrow inward */
+.playlist-row-wrapper .arrow.right {
+  right: 5px; /* Pull playlist right arrow inward */
 }
 
-.carved-for-you .arrow.right {
-  right: 10px; /* Adjust this value to move the arrow inward */
+/* Wrapper for Featured Artists Section */
+.artists-row-wrapper {
+  position: relative; /* Ensure arrows are positioned relative to this container */
+  display: flex;
+  align-items: center;
+}
+
+.artists-row-wrapper .arrow.left {
+  left: 2px; /* Pull artist left arrow inward */
+}
+
+.artists-row-wrapper .arrow.right {
+  right: 2px; /* Pull artist right arrow inward */
 }
 
 /* ——— Middle Bottom Scrollbar ——— */
@@ -406,18 +328,9 @@
   overflow-y: auto; /* Enable vertical scrolling */
   overflow-x: hidden; /* Prevent horizontal overflow */
   scrollbar-width: none; /* Hide scrollbar for Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar for IE */
-  padding-right: 10px; /* Prevent content from touching the edge */
+  padding-right: 5px;
+  -ms-overflow-style: none; /* Hide scrollbar for IE */ 
   box-sizing: border-box; /* Ensure padding is included in width/height */
-}
-
-.middle-bottom::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
-}
-
-/* Ensure parent containers don't cause scrollbars */
-.parent-container {
-  overflow: hidden; /* Prevent parent containers from adding scrollbars */
 }
 
 /* Playlist Section */
@@ -526,57 +439,21 @@
 
 /* Playlist Section Wrapper */
 .playlist-row-wrapper {
-  position: relative;
+  position: relative; /* Ensure arrows are positioned relative to this container */
   display: flex;
   align-items: center;
 }
 
-.playlist-row {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 10px;
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar for IE */
-}
-
-.playlist-row::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
-}
-
-/* Arrows for Playlist Section */
+/* Arrows inside the Playlist wrapper */
 .playlist-row-wrapper .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
+  position: absolute; /* Position arrows absolutely within the wrapper */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+  width: 40px; /* Adjust arrow size */
   height: 40px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
-  z-index: 10;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+  z-index: 10; /* Ensure arrows appear above other elements */
 }
-
-.playlist-row-wrapper:hover .arrow {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.playlist-row-wrapper .arrow.left {
-  left: -20px;
-}
-
-.playlist-row-wrapper .arrow.right {
-  right: -20px;
-}
-
 .arrow svg {
   fill: white;
   width: 20px;
@@ -596,9 +473,20 @@
 }
 
 .artists-row-wrapper {
-  position: relative;
+  position: relative; /* Ensure arrows are positioned relative to this container */
   display: flex;
   align-items: center;
+}
+
+/* Arrows inside the Featured Artists wrapper */
+.artists-row-wrapper .arrow {
+  position: absolute; /* Position arrows absolutely within the wrapper */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+  width: 40px; /* Adjust arrow size */
+  height: 40px;
+  cursor: pointer;
+  z-index: 10; /* Ensure arrows appear above other elements */
 }
 
 .artists-row {
@@ -607,16 +495,16 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   padding-bottom: 10px;
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar for IE */
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
 }
 
 .artists-row::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+  display: none; 
 }
 
 .artist-card {
-  flex: 0 0 100px; /* Fixed width for each artist card */
+  flex: 0 0 100px; 
   text-align: center;
 }
 
@@ -633,7 +521,7 @@
   color: #fff;
 }
 
-/* Add Playlist Button */
+
 .add-playlist-button {
   margin-bottom: 20px;
   padding: 10px 20px;
@@ -647,4 +535,96 @@
 
 .add-playlist-button:hover {
   background-color: #1ed760;
+}
+
+.middle-bottom::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+/* Ensure parent containers don't cause scrollbars */
+.parent-container {
+  overflow: hidden; /* Prevent parent containers from adding scrollbars */
+}
+
+@media (max-width: 1024px) {
+  .recently-played-card {
+    flex: 0 0 180px; /* Slightly smaller for medium screens */
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carved-row-wrapper .arrow {
+    width: 30px;
+    height: 30px;
+  }
+
+  .carved-row-wrapper .arrow.left {
+    left: 5px;
+  }
+
+  .carved-row-wrapper .arrow.right {
+    right: 5px;
+  }
+
+  .carved-row .recently-played-card {
+    flex: 0 0 300px; /* Reduce width for smaller screens */
+    max-width: 300px;
+  }
+
+  .carved-row .album-art {
+    width: 140px; /* Reduce size of album art */
+    height: 140px;
+  }
+
+  .album-title {
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .album-desc {
+    font-size: 12px; /* Adjust font size */
+  }
+
+  .recently-played-card {
+    flex: 0 0 160px; /* Smaller for tablets */
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carved-row-wrapper .arrow {
+    width: 25px;
+    height: 25px;
+  }
+
+  .carved-row-wrapper .arrow.left {
+    left: 2px;
+  } 
+
+  .carved-row-wrapper .arrow.right {
+    right: 2px;
+  }
+
+  .carved-row .recently-played-card {
+    flex: 0 0 250px; /* Further reduce width */
+    max-width: 250px;
+  }
+
+  .carved-row .album-art {
+    width: 120px; /* Further reduce size of album art */
+    height: 120px;
+  }
+
+  .album-title {
+    font-size: 12px;
+  }
+
+  .album-desc {
+    font-size: 10px;
+  }
+
+  .recently-played-card {
+    flex: 0 0 140px; /* Smaller for mobile */
+    max-width: 140px;
+  }
 }

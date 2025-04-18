@@ -1,0 +1,201 @@
+/* *{
+    border: 1px red solid;
+ } */
+
+.playing {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align all child components horizontally */
+  justify-content: flex-start;
+  height: 100%; /* Restrict height to its parent */
+  max-height: 95vh; /* Adjust height to leave space for the control bar */
+  width: 100%; /* Full width of the parent container */
+  padding: 20px;
+  padding-bottom: 80px; /* Add padding to raise the bottom content */
+  background: linear-gradient(to top, #0f3358 40%, #505d75); /* Dark gradient background */
+  color: white;
+  overflow-y: auto; /* Enable vertical scrolling */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  border-radius: 30px;
+}
+
+.playing::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Webkit browsers */
+}
+
+.now-playing-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.playing-album-art {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.album-art {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.playing-details {
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.playing-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.playing-artist {
+  font-size: 1rem;
+  color: #b3b3b3; /* Subtle gray for artist name */
+  margin: 5px 0 0;
+}
+
+.lyrics-box {
+  flex: 0 0 auto; /* Prevent shrinking or growing */
+  width: 100%; /* Full width of the container */
+  max-width: 300px; /* Match the max-width of other boxes */
+  margin-bottom: 20px; /* Add spacing between sections */
+  height: 300px;
+  background-color: #5e1006;
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  text-align: justify;
+  margin-left: auto; /* Center align the box horizontally */
+  margin-right: auto; /* Center align the box horizontally */
+}
+
+.lyrics-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.lyrics-content {
+    flex: 1;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #f5f5f5;
+  }
+
+.about-artist-box {
+  flex: 0 0 auto; /* Prevent shrinking or growing */
+  width: 100%; /* Full width of the container */
+  margin-bottom: 20px; /* Add spacing between sections */
+  max-width: 300px;
+  aspect-ratio: 1 / 1; /* Ensures a perfect square */
+  background-color: #282828; /* Slightly lighter background */
+  border-radius: 10px;
+  overflow: hidden; /* Prevent content overflow */
+  display: flex;
+  flex-direction: column;
+}
+
+.about-artist-image {
+  width: 100%;
+  height: 50%; /* Top half of the box */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+.about-artist-content-wrapper {
+  flex: 1; /* Take up the remaining space */
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  color: white;
+}
+
+.about-artist-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.about-artist-content {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #f5f5f5;
+  text-align: center;
+}
+
+.credits-box {
+  flex: 0 0 auto; /* Prevent shrinking or growing */
+  width: 100%; /* Full width of the container */
+  margin-bottom: 20px; /* Add spacing between sections */
+  max-width: 300px;
+  aspect-ratio: 1 / 1; /* Ensures a perfect square */
+  background-color: #282828; /* Slightly lighter background */
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden; /* Prevent content overflow */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+.credits-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.credits-list {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #f5f5f5;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.credits-list li {
+  margin-bottom: 5px;
+}
+
+.playing-controls {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.control-button {
+  background-color: #1db954; /* Spotify green */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.control-button:hover {
+  background-color: #1ed760; /* Lighter green on hover */
+}
+
+.control-button:active {
+  transform: scale(0.95); /* Slight shrink on click */
+}

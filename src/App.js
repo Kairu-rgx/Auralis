@@ -2,7 +2,9 @@ import React from "react";
 import "./App.css";
 import Profile from "./Comps/Profile";
 import Searchbar from "./Comps/Searchbar";
-import MainContent from "./Comps/MainContent"; // Import MainContent
+import MainContent from "./Comps/MainContent";
+import Playing from "./Comps/Playing";
+import ControlBar from "./Comps/ControlBar"; // Import the ControlBar component
 
 function App() {
   return (
@@ -15,10 +17,13 @@ function App() {
           <Searchbar />
         </div>
         <div className="middle-bottom">
-          <MainContent /> {/* Use MainContent here */}
+          <MainContent />
         </div>
       </div>
-      <div className="right">Right</div>
+      <div className="right">
+        <Playing />
+      </div>
+      <ControlBar />{/* Add the ControlBar component here */}
     </div>
   );
 }
