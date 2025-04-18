@@ -1,185 +1,650 @@
-
+/* ——— Main Content ——— */
 .main-content {
-    padding: 20px;
-  }
-  
+  padding: 20px;
+}
+
 .carved-for-you {
-    margin-top: 40px;
-    padding: 0 10px;
-  }
-  
+  margin-top: 40px;
+  padding: 0;
+}
+
 .carved-for-you h3 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-    color: #fff; /* or adjust based on theme */
-    text-align: left;
-  }
-  
-  .recently-played {
-    position: relative;
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  .recently-played h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 20px;
-  }
-  
-  .recently-played-row {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto; 
-    padding-bottom: 10px;
-    scroll-behavior: smooth; 
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
-  }
-  
-  .recently-played-row::-webkit-scrollbar {
-    display: none; 
-  }
-  
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: left;
+}
+
+/* Hide scrollbar for horizontal scroll sections */
+.carved-row::-webkit-scrollbar,
+.recently-played-row::-webkit-scrollbar {
+  display: none;
+}
+
+.carved-row,
+.recently-played-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+  max-width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Wrapper for Carved for You row and arrows */
+.carved-row-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.carved-row {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+/* Arrows inside the wrapper */
+.carved-row-wrapper .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+
+.carved-row-wrapper .arrow.left {
+  left: -30px !important; 
+}
+
+.carved-row-wrapper .arrow.right {
+  right: -30px !important; 
+}
+
+
+.carved-row-wrapper:hover .arrow {
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
   .recently-played-card {
-    flex: 0 0 calc(20% - 20px);
-    max-width: 200px;
-    position: relative;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 0 0 180px; /* Slightly smaller for medium screens */
+    max-width: 180px;
   }
-  
-  .album-art {
-    width: 100%;
-    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .carved-row-wrapper .arrow {
+    width: 30px;
+    height: 30px;
   }
-  
-  .song-title {
-    font-size: 14px;
-    font-weight: bold;
-    margin: 5px 0 8px;
-    text-align: left;
+
+  .carved-row-wrapper .arrow.left {
+    left: 5px;
   }
-  
-  .artist-name {
+
+  .carved-row-wrapper .arrow.right {
+    right: 5px;
+  }
+
+  .carved-row .recently-played-card {
+    flex: 0 0 300px; /* Reduce width for smaller screens */
+    max-width: 300px;
+  }
+
+  .carved-row .album-art {
+    width: 140px; /* Reduce size of album art */
+    height: 140px;
+  }
+
+  .album-title {
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .album-desc {
+    font-size: 12px; /* Adjust font size */
+  }
+
+  .recently-played-card {
+    flex: 0 0 160px; /* Smaller for tablets */
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carved-row-wrapper .arrow {
+    width: 25px;
+    height: 25px;
+  }
+
+  .carved-row-wrapper .arrow.left {
+    left: 2px;
+  } 
+
+  .carved-row-wrapper .arrow.right {
+    right: 2px;
+  }
+
+  .carved-row .recently-played-card {
+    flex: 0 0 250px; /* Further reduce width */
+    max-width: 250px;
+  }
+
+  .carved-row .album-art {
+    width: 120px; /* Further reduce size of album art */
+    height: 120px;
+  }
+
+  .album-title {
     font-size: 12px;
-    color: gray;
-    margin-bottom: 30px;
-    text-align: left;
-  }
-  
-  .recently-played-card .card-actions {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .recently-played-card .fav-icon,
-  .recently-played-card .play-icon {
-    width: 20px;
-    cursor: pointer;
   }
 
-
-  .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 10;
-    opacity: 0; 
-    transition: opacity 0.3s ease; 
+  .album-desc {
+    font-size: 10px;
   }
 
-  .recently-played:hover .arrow {
-    opacity: 1; 
+  .recently-played-card {
+    flex: 0 0 140px; /* Smaller for mobile */
+    max-width: 140px;
   }
-  
-  .arrow.left {
-    left: -20px;
-  }
-  
-  .arrow.right {
-    right: -20px;
-  }
-  
-  .arrow svg {
-    fill: white;
-    width: 20px;
-    height: 20px;
-  }
-  
+}
 
-  .music-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
-  }
-  
-  .music-card {
-    position: relative;
-    background-color: #f0f0f0; 
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-details {
-    margin-top: 10px;
-  }
-  
-  .card-actions {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .fav-icon,
-  .play-icon {
-    width: 20px;
-    cursor: pointer;
-  }
+/* ——— Recently Played Section ——— */
+.recently-played {
+  position: relative;
+  margin-bottom: 20px;
+  text-align: left;
+}
 
-  /* Scrollbar Styling */
-  .middle-bottom::-webkit-scrollbar {
-    width: 8px; 
-    height: 8px; 
-  }
-  
-  .middle-bottom::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.4); 
-    border-radius: 10px;
-  }
-  
-  .middle-bottom::-webkit-scrollbar-track {
-    background: transparent; 
-  }
+.recently-played h3 {
+  margin: 0 0 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
 
-  .middle-bottom::-webkit-scrollbar-button {
-    display: none;
-  }
+/* Recently Played Row */
+.recently-played-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  max-width: 100%;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE */
+}
 
- 
-  .middle-bottom {
-    scrollbar-width: thin; 
-    scrollbar-color: rgba(255, 255, 255, 0.4) transparent; 
-  }
+.recently-played-row::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+/* Recently Played Card */
+.recently-played-card {
+  flex: 0 0 200px; /* Maintain fixed width */
+  max-width: 200px; /* Prevent shrinking */
+  position: relative;
+  background-color: #5e1006;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Album Art */
+.album-art {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+.artist-name {
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 30px;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+.album-desc {
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 30px;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* Album Title Styling */
+.album-title {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 0 8px;
+  text-align: left;
+}
+
+.recently-played-card .card-details {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.recently-played-card .card-actions {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fav-icon,
+.play-icon {
+  width: 20px;
+  cursor: pointer;
+}
+
+/* ——— Carved for You Section ——— */
+.carved-row .recently-played-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex: 0 0 400px; /* Increase width */
+  max-width: 400px; /* Increase max width */
+  padding: 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  background-color: #0b5050;
+  overflow: hidden;
+  gap: 15px;
+}
+
+.carved-row .album-art {
+  width: 180px; /* Increase width */
+  height: 180px; /* Increase height */
+  object-fit: cover;
+  border-radius: 0;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.carved-row .card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.carved-row .song-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #000;
+}
+
+.carved-row .artist-name {
+  font-size: 13px;
+  color: rgb(255, 255, 255);
+  margin: 0 0 8px;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.album-title {
+  font-size: 16px; /* Slightly larger font */
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.album-desc {
+  font-size: 14px; /* Slightly larger font */
+  color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.5; /* Improve readability */
+}
+
+.carved-row .card-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}
+
+/* ——— Arrows ——— */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.recently-played:hover .arrow,
+.carved-for-you:hover .arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.arrow.left {
+  left: -20px;
+}
+
+.arrow.right {
+  right: -20px;
+}
+
+.arrow svg {
+  fill: white;
+  width: 20px;
+  height: 20px;
+}
+
+/* Align arrows for Carved for You section */
+.carved-for-you .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.carved-for-you:hover .arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carved-for-you .arrow.left {
+  left: 10px; /* Adjust this value to move the arrow inward */
+}
+
+.carved-for-you .arrow.right {
+  right: 10px; /* Adjust this value to move the arrow inward */
+}
+
+/* ——— Middle Bottom Scrollbar ——— */
+.middle-bottom {
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE */
+  padding-right: 10px; /* Prevent content from touching the edge */
+  box-sizing: border-box; /* Ensure padding is included in width/height */
+}
+
+.middle-bottom::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+/* Ensure parent containers don't cause scrollbars */
+.parent-container {
+  overflow: hidden; /* Prevent parent containers from adding scrollbars */
+}
+
+/* Playlist Section */
+.playlist-section {
+  margin-top: 40px;
+}
+
+.playlist-section h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: left;
+}
+
+/* Playlist Card */
+.playlist-card {
+  flex: 0 0 200px; /* Match the width of Recently Played cards */
+  max-width: 200px; /* Prevent shrinking */
+  position: relative;
+  background-color: #5e1006; /* Match Recently Played card background */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Playlist Thumbnail */
+.playlist-thumbnail {
+  width: 100%;
+  height: 150px; /* Match the height of Recently Played album art */
+  object-fit: cover;
+  border-bottom: 2px solid #333;
+}
+
+/* Playlist Thumbnail Collage */
+.playlist-thumbnail.collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  grid-template-rows: 1fr 1fr; /* 2 rows */
+  gap: 2px; /* Small gap between collage parts */
+  width: 100%;
+  height: 200px; /* Increased height to ensure all quadrants are visible */
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.collage-part {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the images fill their grid cells */
+}
+
+.collage-part-1 {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.collage-part-2 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.collage-part-3 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.collage-part-4 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* Single Cover Image (when user uploads a playlist cover) */
+.playlist-thumbnail.single-cover {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Playlist Title */
+.playlist-title {
+  font-size: 14px; /* Match Recently Played title font size */
+  color: #fff;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Playlist Row */
+.playlist-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE */
+  width: calc(100% + 40px); /* Extend beyond the width of the middle-bottom */
+  margin-left: -20px; /* Align with the arrows */
+}
+
+.playlist-row::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+/* Playlist Section Wrapper */
+.playlist-row-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.playlist-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE */
+}
+
+.playlist-row::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+/* Arrows for Playlist Section */
+.playlist-row-wrapper .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.playlist-row-wrapper:hover .arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.playlist-row-wrapper .arrow.left {
+  left: -20px;
+}
+
+.playlist-row-wrapper .arrow.right {
+  right: -20px;
+}
+
+.arrow svg {
+  fill: white;
+  width: 20px;
+  height: 20px;
+}
+
+/* Featured Artists Section */
+.featured-artists-section {
+  margin-top: 40px;
+}
+
+.featured-artists-section h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: left;
+}
+
+.artists-row-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.artists-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE */
+}
+
+.artists-row::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+.artist-card {
+  flex: 0 0 100px; /* Fixed width for each artist card */
+  text-align: center;
+}
+
+.artist-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.artist-name {
+  font-size: 14px;
+  color: #fff;
+}
+
+/* Add Playlist Button */
+.add-playlist-button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #1db954;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-playlist-button:hover {
+  background-color: #1ed760;
+}
